@@ -1,10 +1,14 @@
 package com.arun.navigator.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Getter
+@NoArgsConstructor
 public final class OceanGrid {
-    private int width = 5;
-    private int height = 5;
-    private int[][] obstacles = {
+    private final int width = 5;
+    private final int height = 5;
+    private final int[][] obstacles = {
         { 0 ,0 ,0 ,0 ,0 },
         { 0 ,0 ,1 ,0 ,0 },
         { 0 ,0 ,1 ,0 ,0 },
@@ -12,34 +16,13 @@ public final class OceanGrid {
         { 0 ,0 ,0 ,0 ,0 }
     };
 
-    OceanGrid() {
-
-    }
-
-//    public OceanGrid(int width, int height, int[][] obstacles) {
-//        this.width = width;
-//        this.height = height;
-//        this.obstacles = obstacles;
-//    }
-
 
     public boolean isObstaclePresent(int x, int y) {
          return obstacles[x][y] == 1;
     }
 
     public boolean isValidPosition(int x, int y) {
-        return x >= width && y >= height;
+        return x >= 0 && x < width &&  y >= 0 && y < height;
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public int[][] getObstacles() {
-        return obstacles;
-    }
 }
